@@ -1,0 +1,26 @@
+TITLE: CFA; 
+DATA: FILE IS 效度数据.dat; 
+
+VARIABLE: NAME ARE JB_1 JB_2 JB_3 JB_4 JB_5 JB_6 JB_7 JB_8 JB_9 
+CR_1 CR_2 CR_3 CR_4 CR_5 CR_6 CR_7 CR_8 CR_9 CR_10
+ CL_1 CL_2 CL_3 CL_4 CL_5 CL_6 CL_7 CL_8 CL_9 CL_10
+ SE_1 SE_2 SE_3 SE_4 SE_5 SE_6 SE_7 SE_8 SE_9 
+                  FM_1 FM_2 FM_3 FM_4 FM_5 FM_6 FM_7 FM_8;
+          USEVARIABLES ARE  JB_1 JB_2 JB_3 JB_4 JB_5 JB_6 JB_7 JB_8 JB_9 
+CR_1 CR_2 CR_3 CR_4 CR_5 CR_6 CR_7 CR_8 CR_9 CR_10
+ CL_1 CL_2 CL_3 CL_4 CL_5 CL_6 CL_7 CL_8 CL_9 CL_10
+ SE_1 SE_2 SE_3 SE_4 SE_5 SE_6 SE_7 SE_8 SE_9 
+                  FM_1 FM_2 FM_3 FM_4 FM_5 FM_6 FM_7 FM_8;
+          MISSING=ALL (99); 
+
+MODEL: JB BY JB_1* JB_2-JB_9 ;
+       JB@1;
+       CR BY CR_1* CR_2-CR_10;
+       CR@1;
+       CL BY CL_1* CL_2-CL_10;
+       CL@1;
+       SE BY SE_1* SE_2-SE_9;
+       SE@1;
+       FM BY FM_1* FM_2-FM_8;
+       FM@1;
+OUTPUT: SAMPSTAT;MOD;STDYX;
